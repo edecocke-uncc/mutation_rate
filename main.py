@@ -1,7 +1,7 @@
 """
 main.py
 -------
-Mian for mutation rate calculation.
+CLI for mutation rate calculation.
 """
 
 import argparse
