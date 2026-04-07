@@ -57,7 +57,7 @@ def parse_fasta(filepath: str) -> Dict[str, str]:
             if line.startswith(">"):
                 if header:
                     sequences[header] = "".join(seq_parts)
-                header = line[1:]
+                header = line[1:].split()[0]
                 seq_parts = []
             else:
                 seq_parts.append(line)
