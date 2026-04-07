@@ -17,7 +17,7 @@ import pandas as pd
 from dataclasses import dataclass
 from typing import List
 
-from mut_calc.mutation_rate_calculator import (
+from mutation_rate.mut_calc.mutation_rate_calculator import (
     parse_fasta,
     needleman_wunsch,
     calculate_mutation_rate,
