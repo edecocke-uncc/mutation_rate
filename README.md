@@ -50,26 +50,16 @@ python3 main.py -i BDNF.fasta -r NM_170735 -o results.csv
 
 ## What it does
 
-* Parses a multi-sequence FASTA file using a custom `mut_calc` module
-* Lets the user specify a reference sequence by providing any substring of its header (e.g. `NM_170735` for the human BDNF mRNA)
-* Aligns every other sequence against the reference using **Needleman–Wunsch global alignment** (implemented in NumPy)
-* Computes per-sequence mutation statistics: alignment length, number of matches, number of mismatches, mutation rate, and percent identity
-* Summarises all results in a Pandas DataFrame
+*  Loads sequences from a FASTA file
+*  Selects a reference sequence based on a header substring
+*  Aligns each sequence to the reference using the Needleman-Wunsch algorithm
+*  Computes mutation rate as mismatches divided by alignment length
+*  Stores results in a structured format using Pandas
 
 ## Output
 
-A `results.csv` file (when `-o` is specified) containing one row per query sequence with the following columns:
-
-| Column | Description |
-|--------|-------------|
-| `query_id` | Full FASTA header of the query sequence |
-| `reference_id` | Full FASTA header of the reference sequence |
-| `alignment_length` | Total length of the global alignment |
-| `matches` | Number of identical aligned positions |
-| `mismatches` | Number of differing positions (substitutions + gaps) |
-| `mutation_rate` | `mismatches / alignment_length` (0.0 – 1.0) |
-| `identity_pct` | `100 × matches / alignment_length` |
-| `alignment_score` | Needleman–Wunsch alignment score |
+*  Prints mutation rate results to the terminal
+*  Optionally writes a results.csv file to the current directory if -o is provided
 
 ## Example FASTA file
 
@@ -93,8 +83,8 @@ mutation_rate/
 ├── main.py              
 ├── mut_calc/
 │   ├── __init__.py
-│   ├── fasta_parser.py   
-│   └── aligner.py        
+│   ├── mutation_rate_calculator 
+│       
 ├── BDNF.fasta            
 ├── environment.yml      
 ├── run_tests.sh        
