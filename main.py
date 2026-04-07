@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# Erin Nicole Decocker
+# edecocke@charlotte.edu
+# ID: 801442694
+
+
 """
 main.py
 -------
@@ -10,7 +17,7 @@ import pandas as pd
 from dataclasses import dataclass
 from typing import List
 
-from mutation_rate_calculator import (
+from mut_calc.mutation_rate_calculator import (
     parse_fasta,
     needleman_wunsch,
     calculate_mutation_rate,
